@@ -9,7 +9,6 @@ module.exports = () => {
     entry: {
       main: "./src/js/index.js",
       install: "./src/js/install.js",
-      editor: "./src/js/editor.js",
     },
     output: {
       filename: "[name].bundle.js",
@@ -17,8 +16,8 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "./client/index.html",
-        title: "Text Editor Content",
+        template: "./index.html",
+        title: "jate",
       }),
       new InjectManifest({
         swSrc: "./src-sw.js",
@@ -28,22 +27,19 @@ module.exports = () => {
         fingerprints: false,
         inject: true,
         name: "JATE Manifest",
-        short_name: "Jate",
+        short_name: "jate",
         description: "The Illustrious Text Editor!",
-        background_color: "#ffffff",
+        background_color: "#225ca3",
+        theme_color: "#7eb4e2",
+        start_url: "/",
+        publicPath: "/",
         icons: [
           {
-            src: path.resolve("./client/src/images/logo.png"),
+            src: path.resolve("./src/images/logo.png"),
             sizes: [96, 128, 192, 512],
+            destination: path.join("assets", "icons"),
           },
         ],
-        orientation: "portrait",
-        display: "standalone",
-        start_url: "./",
-        publicPath: "./",
-        description: "Keep track of important tasks!",
-        background_color: "#7eb4e2",
-        theme_color: "#7eb4e2",
       }),
     ],
 
